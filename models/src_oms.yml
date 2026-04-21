@@ -1,7 +1,7 @@
 sources:
   - name: landing
     description: The primary source system for order management system(OMS) data analytics.  
-    database: SLEEKMART_OMS
+    database: RETAIL_OMS
     schema: L1_LANDING
     config:
       freshness:
@@ -28,18 +28,15 @@ sources:
             tests:
               - not_null
               - string_not_empty
-      - name: sales_us
-      - name: sales_europe
-      - name: sales_asia
+      
       - name: stores
       - name: suppliers
       - name: products
 
-  - name: training
-    database: SLEEKMART_OMS
-    schema: TRAINING
+  - name: mltraining
+    database: RETAIL_OMS
+    schema: MLTRAINING
     tables:
-      - name: city_temperature
       - name: sales_us
       - name: sales_uk
       - name: sales_india

@@ -6,7 +6,6 @@ SELECT
     O.StoreID,
     O.StatusCD,
     O.StatusDesc,
-    COUNT(DISTINCT O.OrderID) AS OrderCount,
     SUM(OI.TotalPrice) AS Revenue,
     O.Updated_at
 FROM

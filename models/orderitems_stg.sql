@@ -1,3 +1,8 @@
+{{
+    config( materialized='incremental',
+            unique_key=['OrderID', 'OrderItemID'])
+}}
+
 SELECT
     OrderItemID,
     OrderID,
@@ -5,6 +10,11 @@ SELECT
     Quantity,
     UnitPrice,
     Quantity * UnitPrice AS TotalPrice,
-    Updated_at
+    Updated_at,
+    current_timestamp as dbt_updated_at
 FROM
     {{ source('landing', 'orderitems') }}
+
+{% if is_incremental() %}
+where  Updated_at >= (select max(dbt_updated_at) from {{ this }})
+{% endif %}

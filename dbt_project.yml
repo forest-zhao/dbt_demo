@@ -18,19 +18,21 @@ clean-targets:         # directories to be removed by `dbt clean`
 models:
   oms_dbt_proj:
     profit_us:
-      schema: TRAINING
+      schema: MLTRAINING
       materialized: table
     profit_uk:
-      schema: TRAINING
+      schema: MLTRAINING
       materialized: table
     profit_india:
-      schema: TRAINING
+      schema: MLTRAINING
       materialized: table
     customers_stg:
       schema: L2_PROCESSING
     orders_stg:
       schema: L2_PROCESSING
     orderitems_stg:
+      schema: L2_PROCESSING
+    employees_stg:
       schema: L2_PROCESSING
     customerrevenue:
       materialized: table

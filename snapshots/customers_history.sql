@@ -2,7 +2,7 @@
 
 {{
     config(
-      target_schema='l3_consumption',
+      target_schema='L2_PROCESSING',
       unique_key='CUSTOMERID',
       strategy='timestamp',
       updated_at='updated_at',
@@ -10,6 +10,18 @@
 }}
 
 
-SELECT * FROM {{ source('landing', 'customers') }}
+SELECT 
+    CustomerID,
+    FirstName,
+    LastName,
+    Email,
+    Phone,
+    Address,
+    City,
+    State,
+    ZipCode,
+    Updated_at,
+    CONCAT(FirstName, ' ', LastName) AS CustomerName
+FROM {{ source('landing', 'customers') }}
 
 {% endsnapshot %}
