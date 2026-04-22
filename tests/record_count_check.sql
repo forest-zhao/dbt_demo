@@ -1,3 +1,4 @@
+-- ensure there are suffiecient test data
 -- Define the expected record counts for each table
 {% set expected_counts = {
   'customers': 50,

@@ -1,5 +1,5 @@
 oms_dbt_proj:
-  target: test
+  target: dev
   outputs:
     dev:
       type: snowflake

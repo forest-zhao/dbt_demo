@@ -17,6 +17,9 @@ clean-targets:         # directories to be removed by `dbt clean`
 
 models:
   oms_dbt_proj:
+    +persist_docs:
+      relation: true  # This pushes table/view level descriptions
+      columns: true   # This pushes column-level descriptions
     profit_us:
       schema: MLTRAINING
       materialized: table
@@ -38,4 +41,6 @@ models:
       materialized: table
     orders_fact:
       schema: L2_PROCESSING
+      materialized: table
+    storeperformance:
       materialized: table
