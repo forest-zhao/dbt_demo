@@ -1,6 +1,7 @@
 SELECT
     OS.CustomerID,
     C.CustomerName,
+    COUNT(DISTINCT OS.ORDERID) AS OrderCounts,
     SUM(OS.Revenue) AS Revenue
 FROM
     {{ ref('orders_fact') }} OS

@@ -20,6 +20,9 @@ models:
     +persist_docs:
       relation: true  # This pushes table/view level descriptions
       columns: true   # This pushes column-level descriptions
+    +transient: false
+    # +pre_hook: "{{log_start_time(this)}}"
+    # +post_hook: "{{log_end_time(this)}}"
     profit_us:
       schema: MLTRAINING
       materialized: table

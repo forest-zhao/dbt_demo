@@ -4,12 +4,14 @@
     config(
       target_schema='L2_PROCESSING',
       unique_key='CUSTOMERID',
-      strategy='timestamp',
+      strategy='timestamp', 
       updated_at='updated_at',
+      
     )
 }}
 
-
+--strategy='check',check_cols=(['',''])
+-- invalidate_hard_deletes=True
 SELECT 
     CustomerID,
     FirstName,

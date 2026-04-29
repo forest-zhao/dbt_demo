@@ -17,10 +17,10 @@ oms_dbt_proj:
       schema: L3_CONSUMPTION
       threads: 8
 
-    prod:
-      type: snowflake
-      role: DBT_TRANSFORMER_ROLE
-      warehouse: COMPUTE_WH
-      database: PROD_ANALYSE_DB
-      schema: L3_CONSUMPTION
-      threads: 8
+    # prod:
+    #   type: snowflake
+    #   role: DBT_TRANSFORMER_ROLE
+    #   warehouse: COMPUTE_WH
+    #   database: PROD_ANALYSE_DB
+    #   schema: L3_CONSUMPTION
+    #   threads: 8
