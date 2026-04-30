@@ -6,6 +6,7 @@
       unique_key='CUSTOMERID',
       strategy='timestamp', 
       updated_at='updated_at',
+      invalidate_hard_deletes=True
       
     )
 }}
