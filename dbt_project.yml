@@ -3,6 +3,8 @@ version: '1.0.0'
 config-version: 2
 
 profile: 'oms_dbt_proj'
+on-run-start:
+  - "{{ create_target_schema() }}"
 
 model-paths: ["models"]
 analysis-paths: ["analyses"]
@@ -42,8 +44,10 @@ models:
       schema: L2_PROCESSING
     customerrevenue:
       materialized: table
+      schema: L3_CONSUMPTION
     orders_fact:
       schema: L2_PROCESSING
       materialized: table
     storeperformance:
       materialized: table
+      schema: L3_CONSUMPTION

@@ -6,7 +6,7 @@ oms_dbt_proj:
       role: DBT_TRANSFORMER_ROLE
       warehouse: COMPUTE_WH
       database: DEV_ANALYSE_DB
-      schema: L3_CONSUMPTION
+      schema: PUBLIC
       threads: 8
 
     test:
