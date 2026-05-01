@@ -19,10 +19,13 @@ models:
     
     customers_stg:
       schema: L2_PROCESSING
+      materialized: view
     orders_stg:
       schema: L2_PROCESSING
+      materialized: table
     orderitems_stg:
       schema: L2_PROCESSING
+      materialized: table
     customerrevenue:
       materialized: table
       schema: L3_CONSUMPTION
