@@ -8,6 +8,9 @@ oms_dbt_proj:
       database: DEV_ANALYSE_DB
       schema: L2_PROCESSING
       threads: 8
+    # account: UHWZTVW-LK06564
+    # user: FOREST
+    # authenticator: externalbrowser
 
     # test:
     #   type: snowflake

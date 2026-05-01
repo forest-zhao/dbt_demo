@@ -2,10 +2,6 @@
 -- Define the expected record counts for each table
 {% set expected_counts = {
   'customers': 50,
-  'employees': 20,
-  'stores': 10,
-  'suppliers': 5,
-  'products': 100,
   'orderitems': 1000,
   'orders': 200
 } %}

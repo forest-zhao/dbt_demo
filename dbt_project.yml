@@ -16,16 +16,15 @@ snapshot-paths: ["snapshots"]
 models:
   oms_dbt_proj:
     +transient: false
-    
-    customers_stg:
-      schema: L2_PROCESSING
-      materialized: view
-    orders_stg:
-      schema: L2_PROCESSING
-      materialized: table
-    orderitems_stg:
-      schema: L2_PROCESSING
-      materialized: table
+    stg:
+      +schema: L2_PROCESSING
+      +materialized: view  # Default for everything in stg
+      
+      # If you want specific files to be tables instead:
+      orders_stg:
+        +materialized: table
+      orderitems_stg:
+        +materialized: table
     customerrevenue:
       materialized: table
       schema: L3_CONSUMPTION
