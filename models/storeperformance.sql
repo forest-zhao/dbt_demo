@@ -1,11 +1,14 @@
+{{
+    config( materialized='table')
+}}
+
+
 SELECT
-    OS.StoreID,
+    OFACT.StoreID,
     SUM(OFACT.Revenue) AS ActualSales,
     SUM(ST.SalesTarget) AS TargetSales
 FROM
-    {{ ref('orders_stg') }} OS
+    {{ ref('orders_fact') }} OFACT 
 JOIN
-    {{ ref('orders_fact') }} OFACT ON OS.OrderID = OFACT.OrderID
-JOIN
-    {{ ref('salestargets') }} ST ON ST.StoreID = OS.StoreID
+    {{ ref('salestargets') }} ST ON ST.StoreID = OFACT.StoreID
 GROUP BY 1

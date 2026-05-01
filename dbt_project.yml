@@ -3,8 +3,7 @@ version: '1.0.0'
 config-version: 2
 
 profile: 'oms_dbt_proj'
-on-run-start:
-  - "{{ create_target_schema() }}"
+
 
 model-paths: ["models"]
 analysis-paths: ["analyses"]
@@ -13,34 +12,16 @@ seed-paths: ["seeds"]
 macro-paths: ["macros"]
 snapshot-paths: ["snapshots"]
 
-clean-targets:         # directories to be removed by `dbt clean`
-  - "target"
-  - "dbt_packages"
 
 models:
   oms_dbt_proj:
-    +persist_docs:
-      relation: true  # This pushes table/view level descriptions
-      columns: true   # This pushes column-level descriptions
     +transient: false
-    # +pre_hook: "{{log_start_time(this)}}"
-    # +post_hook: "{{log_end_time(this)}}"
-    profit_us:
-      schema: MLTRAINING
-      materialized: table
-    profit_uk:
-      schema: MLTRAINING
-      materialized: table
-    profit_india:
-      schema: MLTRAINING
-      materialized: table
+    
     customers_stg:
       schema: L2_PROCESSING
     orders_stg:
       schema: L2_PROCESSING
     orderitems_stg:
-      schema: L2_PROCESSING
-    employees_stg:
       schema: L2_PROCESSING
     customerrevenue:
       materialized: table

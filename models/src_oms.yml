@@ -3,11 +3,6 @@ sources:
     description: The primary source system for order management system(OMS) data analytics.  
     database: RETAIL_OMS
     schema: L1_LANDING
-    config:
-      freshness:
-        warn_after: {count: 1, period: day}
-        error_after: {count: 3, period: day}
-    loaded_at_field: Updated_at
 
     tables:
       - name: customers
@@ -19,24 +14,5 @@ sources:
       - name: orderitems
         description: The orderitems table from order management system(OMS).      
         identifier: orderitems
-      - name: employees
-        description: The employees table from order management system(OMS).      
-        identifier: employees
-        columns:
-          - name: address
-            description: Full Address of emplyees for Transport Arrangements.          
-            tests:
-              - not_null
-              - string_not_empty
       
-      - name: stores
-      - name: suppliers
-      - name: products
 
-  - name: mltraining
-    database: RETAIL_OMS
-    schema: MLTRAINING
-    tables:
-      - name: sales_us
-      - name: sales_uk
-      - name: sales_india

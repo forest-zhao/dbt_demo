@@ -16,5 +16,5 @@ FROM
     {{ source('landing', 'orderitems') }}
 
 {% if is_incremental() %}
-where  Updated_at >= (select max(dbt_updated_at) from {{ this }})
+where  Updated_at >= (select max(Updated_at) from {{ this }})
 {% endif %}
