@@ -1,9 +1,7 @@
 SELECT
-    OS.StoreID,
-    SUM(OFACT.Revenue) AS TotalRevenue
+    StoreID,
+    SUM(Revenue) AS TotalRevenue
 FROM
-    {{ ref('orders_stg') }} OS
-JOIN
-    {{ ref('orders_fact') }} OFACT ON OS.OrderID = OFACT.OrderID
+    {{ ref('orders_fact') }}  
 GROUP BY 1
 
